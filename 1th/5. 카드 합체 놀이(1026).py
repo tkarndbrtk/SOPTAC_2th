@@ -13,5 +13,3 @@ for _ in range(m):
   heapq.heappush(card_list, a+b)
   heapq.heappush(card_list, a+b)
 print(sum(card_list))
-
-
