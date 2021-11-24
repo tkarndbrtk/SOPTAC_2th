@@ -1,29 +1,27 @@
 import sys
 input = sys.stdin.readline
 lst = []
-candies, friends = map(int,input().split())
-sum = 0
-
-for i in range(friends):
+M, N = map(int,input().split())
+for i in range(N):
     lst.append(int(input()))
-lst.sort(reverse = True)
+lst.sort()
+give_me_a_candies = sum(lst) - M # 필요 캔디 - 가진 캔디 = 못받은 캔디
+ans = 0
 
-for i in lst
+for i in range(N):
+    # 가장 분노가 최소인 지점 => 각 사람들이 못 받은 캔디 개수가 같을 때
+    # vacant는 분노가 최소가 되게 하는 한 사람이 못 받은 캔디의 개수
+    vacant = give_me_a_candies // ( N - i ) 
 
-사탕 30개 5명
-8
-13
-17
-4
-1
-원하는 개수 44 - 30 = 14
-그리고 나머지 4개 따로 저장
-1
-4
-8
-14
-17
-첫 놈이 만약 14//5보다 작다면, 그대로 출력
+    # 하지만 한 친구가 필요로 한 사탕 개수가 vacant보다 작다면 예외처리를 해줘야 함 
+    if lst[i] >= vacant:
+        given = vacant
+        ans += given * given
+    else:
+        given = lst[i]
+        ans += given * given
+    give_me_a_candies -= given
+
+print(ans%(2**64))
 
 
-만약 크다면, 14//5분배 나머진 고려 안하고 다 분배 가능 그리고 밑에 추가해서 빼주기
